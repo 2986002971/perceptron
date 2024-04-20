@@ -6,6 +6,8 @@ import time
 @jit(nopython=True)
 def update_weights_numba(x, y, weights, bias, learning_rate):
     for idx, x_i in enumerate(x):
+        x_i = np.ascontiguousarray(x_i)
+        weights = np.ascontiguousarray(weights)
         output = np.dot(x_i, weights) + bias
         y_predicted = 1 if output > 0 else -1
 
@@ -63,5 +65,3 @@ class DataSet:
 
             self.x = np.vstack((self.x, x))
             self.y = np.hstack((self.y, y))
-
-
