@@ -23,11 +23,11 @@ with st.sidebar:
     n_iters = st.slider("迭代次数", 1, 1000, 100, 100)
 
     st.markdown("## 数据设置")
-    n_samples = st.number_input("训练数据量", 10, 10000, 10, 10)
-    n_inference = st.number_input("测试数据量", 1, 1000, 1, 1)
+    n_samples = st.number_input("训练数据量", 10, 10000, 100, 10)
+    n_inference = st.number_input("测试数据量", 1, 1000, 10, 1)
     n_features = st.number_input("特征维度数", 2, 10000, value=2, step=1)
     position = st.number_input("两组数据中心距离调节", 1, 10, 1, 1)
-    sigma = st.number_input("方差", 0.1, 2.0, 0.1, 0.1)
+    sigma = st.number_input("方差", 0.1, 2.0, 0.5, 0.1)
 
     generate_data = st.button("生成数据")
     if generate_data:
